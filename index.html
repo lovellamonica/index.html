@@ -1,0 +1,409 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: 'serif';
+            margin: 0;
+            padding: 0;
+            background-color: #f;
+            background-image: url('https://images2.alphacoders.com/136/1360350.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        section.intro {
+            padding: 40px;
+            text-align: center;
+            color: #00154O;
+            display: none;
+            animation: slideIn 1s forwards;
+        }
+
+        section.intro img {
+            border-radius: 50%;
+            width: 250px;  /* Bigger profile picture */
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        section.intro h2 {
+            font-size: 2.5em;
+            color:#ffff;
+        }
+
+        section.intro p {
+            font-size: 1.5em;
+            color: #00154O;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        .project-box {
+            width: 300px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .project-box:hover {
+            transform: scale(1.05);
+        }
+
+        .project-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-box h3 {
+            margin: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .project-box p {
+            margin: 0 20px 20px 20px;
+            font-size: 1em;
+            color: #777;
+        }
+
+        footer {
+            background-color: #1A2130;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.1em;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 900px;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .modal-content h3 {
+            font-size: 2em;
+            color: #333;
+        }
+
+        .modal-content p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Slide In Animation */
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .projects-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .project-box {
+                width: 90%;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            section.intro h2 {
+                font-size: 1.8em;
+            }
+
+            section.intro p {
+                font-size: 1em;
+            }
+
+            footer {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            section.intro h2 {
+                font-size: 1.6em;
+            }
+
+            section.intro p {
+                font-size: 0.9em;
+            }
+
+            .project-box h3 {
+                font-size: 1.2em;
+            }
+
+            .project-box p {
+                font-size: 0.9em;
+            }
+
+            footer {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+    </header>
+
+    <section class="intro">
+        <img src="https://i.postimg.cc/wTDmvXkv/2fbbddbe-d997-4a67-870b-b7c8fbab1621-2-1.jpg" alt="Lovella Monica Villamor">
+        <h2></h2>
+        <p>Hello, this is Lovella Monica Villamor from grade 9b. The images of my work in several subjects are shown here. Making this was challenging, but I still found it enjoyable. The reason computer subject is significant is that we learn things that will become useful to us later on. That's it. Simply click on it to see a description and additional information about what I did.
+        <p>
+Here are my best outputs in various fields. Enjoy browsing!</p>
+    </section>
+
+    <section class="projects">
+        <div class="projects-container">
+            <div class="project-box" onclick="openModal(1)">
+                <img src="https://i.postimg.cc/Pq7bgmHM/13804572-a7ef-4867-8f71-50cacfcac0ee.jpg" alt="Project 1 Image">
+                <h3> Science Subject </h3>
+                <p> </p>
+            </div>
+
+            <div class="project-box" onclick="openModal(2)">
+                <img src="https://i.postimg.cc/6pskXvWt/931eb7b3-4b6c-4b47-9fdd-f70296a62443.jpg" alt="Project 2 Image">
+                <h3> Filipino Subject (Tula) </h3>
+            </div>
+
+            <div class="project-box" onclick="openModal(3)">
+                <img src="https://i.postimg.cc/nzP3HytN/015d43ab-a0a3-47ce-8be8-ccd1d90d7a3e.jpg" alt="Project 3 Image">
+                <h3> Declamation Speech </h3>
+            </div>
+
+            <div class="project-box" onclick="openModal(4)">
+                <img src="https://i.postimg.cc/Dy9yW0gw/e03bb945-1fa6-42e7-88a1-de878e3f7d43.jpg" alt="Project 4 Image">
+                <h3> Time Scroll (Art Subject) </h3>
+            </div>
+
+            <div class="project-box" onclick="openModal(5)">
+                <img src="https://i.postimg.cc/SK6cjwbJ/e0f499ad-d337-42a5-8e2b-ef6eee41e9fe.jpg" alt="Project 5 Image">
+                <h3> Mini Catapult (Science Subject) </h3>
+            </div>
+
+            <div class="project-box" onclick="openModal(6)">
+                <img src="https://i.postimg.cc/GtWpFmkr/62f18c5d-133a-4ab7-8707-3744d7301bed.jpg" alt="Project 6 Image">
+                <h3> TLE Groupings (Star Churros) </h3>
+            </div>
+
+            <div class="project-box" onclick="openModal(7)">
+                <img src="https://i.postimg.cc/26gX2JTd/dcceb207-7d69-4b26-8c24-97caf9c0bf35.jpg" alt="Project 7 Image">
+                <h3> Health Poster </h3>
+            </div>
+
+            <div class="project-box" onclick="openModal(😎">
+                <img src="https://i.postimg.cc/dQH0t932/08e34b2c-7282-4541-941d-7da83d8e5e2e.jpg" alt="Project 8 Image">
+                <h3> Speech Webpage (HTML) Computer Subject </h3>
+            </div>
+
+            <div class="project-box" onclick="openModal(9)">
+                <img src="https://i.postimg.cc/ZKZqTPGH/caa8d89c-7821-415b-9365-01dbd7555549.jpg" alt="Project 9 Image">
+                <h3> Coding (Computer Subject) </h3>
+            </div>
+
+            <div class="project-box" onclick="openModal(10)">
+                <img src="https://i.postimg.cc/kMWpQWBk/0ddf8234-6e24-4939-96c0-83afba767da8.jpg" alt="Project 10 Image">
+                <h3> Arts Subject </h3>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(1)">&times;</span>
+            <h3>Project 1: Science Subject</h3>
+            <p>Cultivating a mung bean is an activity you can engage in easy steps, and gives you a perspective on a plant's life cycle. Ideal germination starts with soaking the mung beans in water for a day, then placing them in a soil or tabletop garden. Giving the beans enough water and sunlight is critical during germination. As the best feeds and cleanness are followed, seeds begin to emerge in five days. With this we learn to be patient, adjust with time, and add to our knowledge in botany and caring for the environment.</p>
+            <img src="https://i.postimg.cc/Pq7bgmHM/13804572-a7ef-4867-8f71-50cacfcac0ee.jpg" alt="Project 1 Image">
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(2)">&times;</span>
+            <h3>Project 2: Filipino Subject (Tula)</h3>
+            <p>My experience of writing a poem in Filipino about my pet was touching. My goal was to portray the affection and happiness my pet brings to my life. I detail all the playful activities and the solace my pet provides me with, as well as how I'd describe him, in the beautiful language called Filipino. I could look back on the bond we share while writing the poem, and expressing those feelings through language was incredibly satisfying..</p>
+            <img src="https://i.postimg.cc/6pskXvWt/931eb7b3-4b6c-4b47-9fdd-f70296a62443.jpg" alt="Project 2 Image">
+        </div>
+    </div>
+    
+    <div id="modal3" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal(3)">&times;</span>
+        <h3>Project 3: Declamation Speech</h3>
+        <p>I spoke about the suffering that the Filipino people endured under the Japanese occupation. Additionally, I wanted to spread the word about this so that others can understand what the Japanese did and draw lessons from it. Since we may need these items in the future, it is crucial that we are aware of them. And that's it!</p>
+        <img src="https://i.postimg.cc/nzP3HytN/015d43ab-a0a3-47ce-8be8-ccd1d90d7a3e.jpg" alt="Project 3 Image">
+    </div>
+</div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(4)">&times;</span>
+            <h3>Project 4: Time Scroll (Art Subject)</h3>
+            <p>When I created a time scroll of the different periods of theater, I felt like I was diving into the rich history of performance arts. I organized the various periods from ancient Greek theater to modern-day movements, highlighting key milestones like iconic playwrights and revolutionary performance styles. The scroll helped me visualize how theater evolved over time, and it made me appreciate the art form even more. It was a fun way to learn and understand the cultural significance of theater in shaping society.</p>
+            <img src="https://i.postimg.cc/Dy9yW0gw/e03bb945-1fa6-42e7-88a1-de878e3f7d43.jpg" alt="Project 4 Image">
+        </div>
+    </div>
+
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(5)">&times;</span>
+            <h3>Project 5: Mini Catapult (Science Subject)</h3>
+            <p>Making a Mini Catapult: I thought making a mini catapult was a very educational project! I crafted my model with popsicle sticks, rubber bands, and a bottle cap. While putting everything together, I got to experiment with some physics—wondering how different tensions in the rubber bands and launch angles would impact the distance and accuracy. It felt like I was engineering something, and I found it incredible how a mere catapult design could illustrate fundamental concepts of force and motion.</p>
+            <img src="https://i.postimg.cc/SK6cjwbJ/e0f499ad-d337-42a5-8e2b-ef6eee41e9fe.jpg" alt="Project 5 Image">
+        </div>
+    </div>
+
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(6)">&times;</span>
+            <h3>Project 6: TLE Groupings (Star Churros)</h3>
+            <p>Making churros in the shape of stars was a fun experience! After mixing the dough, I used a special tip to pipe it into star-shaped designs. The greatest part was rolling them in cinnamon sugar for the ideal sweet finish after they were fried until golden and crispy. The star shapes added a fun touch to the classic churro, making them ideal for a celebration. They tasted great, and I was extremely happy with how these turned out!</p>
+            <img src="https://i.postimg.cc/GtWpFmkr/62f18c5d-133a-4ab7-8707-3744d7301bed.jpg" alt="Project 6 Image">
+        </div>
+    </div>
+
+    <div id="modal7" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(7)">&times;</span>
+            <h3>Project 7: Health Poster</h3>
+            <p>My mini health poster against the war on drugs was a mini project, but impactful for me. What we’re doing is using art as a weapon to raise awareness of the impact that drugs have on people, families and society. I started doing a lot of research on the topic, stats and stories about the struggles of the drug trade and addiction and the consequences of all of it. It is based on the usage of bold colors and clear, concise posts designed to inform the general public whilst evoking emotion and urgency. I wanted to reach people, young people especially, and help them realize the seriousness of staying away from drugs. Doing so truly felt empowering — using my creativity in a way that aligns with a cause that can actually make a difference in the world.</p>
+            <img src="https://i.postimg.cc/26gX2JTd/dcceb207-7d69-4b26-8c24-97caf9c0bf35.jpg" alt="Project 7 Image">
+        </div>
+    </div>
+
+    <div id="modal8" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(😎">&times;</span>
+            <h3>Project 8: Speech Webpage (HTML) Computer Subject</h3>
+            <p>Coding a webpage was a fun project that let me exercise both my technical and artistic skills. To create an engaging experience, I started by designing the layout and deciding where the material and images would go. I formatted it with HTML and CSS to give it a pleasant look. Seeing my homepage come to life was incredible, and I was pleased that I had created something capable of delivering a lecture in such a modern manner.</p>
+            <img src="https://i.postimg.cc/dQH0t932/08e34b2c-7282-4541-941d-7da83d8e5e2e.jpg" alt="Project 8 Image">
+        </div>
+    </div>
+
+    <div id="modal9" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(9)">&times;</span>
+            <h3>Project 9: Coding (Computer Subject)</h3>
+            <p>Coding a survey was a great assignment that allowed me to combine my coding talents with the real task of data collection. I began by creating a clean, user-friendly interface with HTML, ensuring that the questions were clear and simple to answer. I used CSS to style the survey so that it was visually beautiful and accessible on a variety of devices.  I felt accomplished as I tried it, knowing that this simple poll might provide significant feedback or insights for any project or research. It not only increased my technical skills, but also provided me with a better grasp of how data is collected and evaluated in the digital world.</p>
+            <img src="https://i.postimg.cc/ZKZqTPGH/caa8d89c-7821-415b-9365-01dbd7555549.jpg" alt="Project 9 Image">
+        </div>
+    </div>
+
+    <div id="modal10" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal(10)">&times;</span>
+            <h3>Project 10: Arts Subject</h3>
+            <p>Painting my puppy was pretty special. I sat there studying my dog — his buoyant posture, his expressive eyes, the way the light strikes his fur. I used my favorite colors that are in acrylics to paint the image. Whenever I see the painting, I think of all the love and happiness my dog gives me. To be able to embody his essence on a flat plane was incredible. It was a nice way to combine my love of painting and my pet in a memento I’ll treasure forever.</p>
+            <img src="https://i.postimg.cc/kMWpQWBk/0ddf8234-6e24-4939-96c0-83afba767da8.jpg" alt="Project 10 Image">
+        </div>
+    </div>
+
+    <footer>
+        <p>Made with ♥ by Lovella Monica Villamor</p>
+    </footer>
+
+    <script>
+        function openModal(projectNumber) {
+            var modal = document.getElementById('modal' + projectNumber);
+            modal.style.display = "block";
+        }
+
+        function closeModal(projectNumber) {
+            var modal = document.getElementById('modal' + projectNumber);
+            modal.style.display = "none";
+        }
+
+        // Show the intro section first before the projects
+        window.onload = function() {
+            document.querySelector('.intro').style.display = 'block';
+        };
+    </script>
+
+</body>
+</html>
